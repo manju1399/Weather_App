@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url("https://th.bing.com/th/id/R.3a9f0210ff7d1e83039ff237c81bacae?rik=asArcL6qvWfZfA&riu=http%3a%2f%2fs1.picswalls.com%2fwallpapers%2f2016%2f03%2f29%2fbeautiful-nature-high-definition_042323787_304.jpg&ehk=8tO7UxFL%2bC03x6vfc2O9EhdUCe4fl6tC7UGUdlnpdX4%3d&risl=&pid=ImgRaw&r=0");
+    background-position: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-container {
+    background-color: rgba(0, 0, 0, 0.678);
+    margin-left: 7.7vw;
+    border-radius: 20px;
+    width: 35rem;
+    padding: 30px;
+    color: white;
+}
+
+.card-container1 {
+    background-color: rgba(0, 0, 0, 0.678);
+    margin-left: 4vw;
+    border-radius: 20px;
+    width: 14rem;
+    padding: 30px;
+    color: white;
+}
+
+.search {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.search input {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.603);
+    width: 80%;
+    outline: none;
+    height: 37px;
+    border-radius: 20px;
+    color: grey;
+    font-size: 22px;
+    padding-left: 29px;
+}
+
+.search button {
+    cursor: pointer;
+    height: 37px;
+    width: 37px;
+    margin-left: 10px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.603);
+    color: grey;
+    transition: 0.5s;
+}
+
+.search button:hover {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.836)
+}
+
+.weather {
+    padding: 20px;
+}
+
+.city {
+    color: rgb(212, 208, 208);
+    font-size: 25px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.temp,.wind-speed,.humidity {
+    color: rgb(212, 208, 208);
+    font-size: 20px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.alert {
+    opacity: 0;
+    width: 700px;
+    margin-top: 10vh;
+    margin-left: 4%;
+    height: 60px;
+    position: relative;
+    transition: 1s;
+}
+
+.alert-warning {
+    margin-left: 322px;
+}
