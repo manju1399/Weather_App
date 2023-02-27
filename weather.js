@@ -16,6 +16,7 @@ let opt1 = {
 
 fetch("https://api.api-ninjas.com/v1/weather?city=bangalore", opt1)
   .then((res) => {
+    console.log(res);
     return res.json();
   })
   .then((data) => {
@@ -26,6 +27,7 @@ fetch("https://api.api-ninjas.com/v1/weather?city=bangalore", opt1)
 
 fetch("https://api.api-ninjas.com/v1/weather?city=delhi", opt1)
   .then((res1) => {
+    console.log(res1);
     return res1.json();
   })
   .then((data1) => {
@@ -35,14 +37,12 @@ fetch("https://api.api-ninjas.com/v1/weather?city=delhi", opt1)
   });
 
 //-------------------------------------------------------------------------
-
 let city = document.getElementById("city");
 let temp = document.getElementById("temp");
 let wind_speed = document.getElementById("wind-speed");
 let humidity = document.getElementById("humidity");
 let btn = document.getElementById("btn");
 var city1 = "";
-
 btn.addEventListener("click", runw);
 
 function runw(e) {
@@ -62,31 +62,35 @@ function runw(e) {
 
   fetch(opt.url, opt)
     .then((result) => {
-      return result.json();
+      console.log(result);
+
+      if (!result.ok) {
+        console.log("hello from !ok");
+        let alert = document.getElementById("alert");
+
+        setTimeout(() => {
+          city.textContent = `${city1} name is invalid `;
+          alert.style.opacity = "1";
+        }, 100);
+
+        setTimeout(() => {
+          alert.style.opacity = "0";
+        }, 4000);
+
+        city.textContent = `Weather in your place `;
+        temp.textContent = `Temp : - °C`;
+        wind_speed.textContent = `Wind-speed : - km/hr`;
+        humidity.textContent = `Humidity : -%`;
+
+        cname.value = "";
+      } else return result.json();
     })
     .then((data) => {
+      console.log(data);
       displayWeather(data);
+      // throw new Error("go fetch ur self")
     })
-    .catch((error) => {
-      let alert = document.getElementById("alert");
-
-      setTimeout(() => {
-        city.textContent = `${city1} name is invalid `;
-        alert.style.opacity = "1";
-      }, 100);
-
-      setTimeout(() => {
-        alert.style.opacity = "0";
-      }, 4000);
-
-      city.textContent = `Weather in your place `;
-      temp.textContent = `Temp : - °C`;
-      wind_speed.textContent = `Wind-speed : - km/hr`;
-      humidity.textContent = `Humidity : -%`;
-
-      cname.value = "";
-    })
-    
+    .catch((error) => console.log(error));
 
   displayWeather = (data) => {
     city.textContent = `Place : ${city1} `;
